@@ -1,0 +1,252 @@
+Name: [Vivian Qi]
+NetID: [wq11]
+Hours Spent: [Started on 2/10/2018, finished on 2/13/2018. Spent ~11 hours at this point. ]
+Consulted With: [Lin Zuo, UTA on Monday night help hour]
+Resources Used: [Some StackOverflow pages that refreshes me on how to convert array to arraylist, arraylist back to array, array to set, etc.]
+Impressions: [Good assignment to force me to understand Map. ]
+%%%%
+PROBLEM 1:
+When using MarkovModel to generate characters, the time needed is as follows: 
+For alice.txt (size 163187):
+
+Text length 2000: 
+order	#chars	source	mean	sigma
+1		2000	163187	0.925	0.010
+5		2000	163187	0.691	0.001
+10		2000	163187	0.688	0.001
+
+Text length 4000: 
+order	#chars	source	mean	sigma
+1		4000	163187	2.305	0.012
+5		4000	163187	1.353	0.008
+10		4000	163187	1.289	0.001
+
+Text length 8000: 
+order	#chars	source	mean	sigma
+1	8000	163187	3.232	0.040
+5	8000	163187	2.602	0.044
+10	8000	163187	2.392	0.003
+
+Text length 16000: 
+1	16000	163187	6.536	0.007
+5	16000	163187	4.343	0.085
+10	16000	163187	4.178	0.018
+
+For hawthorne.txt (size 507914): 
+
+Text length 2000: 
+order	#chars	source	mean	sigma
+1		2000	507914	2.683	0.013
+5		2000	507914	1.691	0.002
+10		2000	507914	1.360	0.002
+
+Text length 4000: 
+order	#chars	source	mean	sigma
+1		4000	507914	5.495	0.098
+5		4000	507914	3.344	0.001
+10		4000	507914	2.689	0.012
+
+Text length 8000: 
+order	#chars	source	mean	sigma
+1		8000	507914	10.826	0.103
+5		8000	507914	6.699	0.011
+10		8000	507914	5.262	0.002
+
+Text length 16000: 
+order	#chars	source	mean	sigma
+1		16000	507914	21.255	0.103
+5		16000	507914	13.137	0.008
+10		16000	507914	10.507	0.010
+
+%%%%
+PROBLEM 2:
+For the MarkovModel, the length of the training text is proportional to the runtime when the order of the generation is the same. 
+When the length of the training text increase, the runtime increase in a similar manner. 
+This is because as the training text becomes longer, the getFollows method need to look through more text to find the character/word that follows. 
+The runtime decrease as the order of generation increases when the length of the training text remains the same. 
+This is because when the order of generation is larger, it makes the getFollows method easier to look for the text. 
+
+If the length of the training text is 5.5 millions, it is around 11 times the size of hawthorne.txt. 
+I would expect the runtime for 16000 characters and order 5 to be 11 times of that in hawthorne.txt, which is 13.137*11 = 144.5 second. 
+
+%%%%
+PROBLEM 3:
+When using EfficientMarkov to generate characters, the time needed is as follow: 
+For alice.txt (size 163187): 
+
+
+Text length 2000:
+order	#chars	source	mean	sigma
+1		2000	163187	0.031	0.001
+5		2000	163187	0.024	0.000
+10		2000	163187	0.035	0.000
+
+Text length 4000:
+order	#chars	source	mean	sigma
+1		4000	163187	0.009	0.000
+5		4000	163187	0.023	0.000
+10		4000	163187	0.033	0.000
+
+Text length 8000: 
+order	#chars	source	mean	sigma
+1		8000	163187	0.010	0.000
+5		8000	163187	0.025	0.000
+10		8000	163187	0.033	0.000
+
+Text length 16000: 
+order	#chars	source	mean	sigma
+1		16000	163187	0.012	0.000
+5		16000	163187	0.026	0.000
+10		16000	163187	0.037	0.000
+
+For hawthorne.txt (size 507914):
+
+Text length 2000: 
+order	#chars	source	mean	sigma
+1		2000	507914	0.089	0.004
+5		2000	507914	0.099	0.000
+10		2000	507914	0.150	0.000
+
+Text length 4000: 
+order	#chars	source	mean	sigma
+1		4000	507914	0.031	0.000
+5		4000	507914	0.105	0.000
+10		4000	507914	0.152	0.000
+
+Text length 8000: 
+order	#chars	source	mean	sigma
+1		8000	507914	0.033	0.000
+5		8000	507914	0.102	0.000
+10		8000	507914	0.164	0.001
+
+Text length 16000:  
+order	#chars	source	mean	sigma
+1		16000	507914	0.033	0.000
+5		16000	507914	0.110	0.000
+10		16000	507914	0.157	0.000
+
+The length of the training text is still proportional to the runtime, because the EfficientMarkov need to go through the training text and 
+build the map accordingly. A longer training text means EfficientMarkov needs to scan it for longer and build a map with more items. 
+However, the order of the characters generated is proportional to the runtime for EfficientMarkov, whereas the order of the characters generated
+is inversely proportional to the runtime for MarkovMovdel (for MarkovModel, when order goes up, the runtime goes down). This is because as the 
+order becomes larger, the key of the map becomes larger, and EfficientMarkov needs to spend more time in looking up the key.
+
+If we need to generate 16000 of characters using order of 5 and training text length of 5.5 million, I would still expect that the runtime be 
+11 times the runtime of generating 16000 characters using order of 5 and training text hawthorne.txt. Now the runtime equals to 0.11 * 11 = 1.21s
+%%%%
+PROBLEM 4:
+To generate different output, I used different random seed in the MarkovModel. The numbers of characters generated are as follows: 
+Random seed #        Characters generated
+3920					553
+5719					438
+9072					285
+8467					665
+2880					248
+4335					104
+1067					451
+6914					900
+8888					369
+7702					353
+
+The average of the number of characters generated is 436.6 characters. 
+%%%%
+PROBLEM 5:
+alice.txt: 
+Order			Number of keys
+1					5909
+2					18835
+3					25662
+4					27471
+5					27917
+
+hawthorne.txt: 
+Order			Number of keys
+1					14123
+2					56449
+3					80508
+4					84924
+5					85585
+
+jfk-un-sept25-61.txt: 
+Order			Number of keys
+1					1588
+2					3699
+3					4301					
+4					4398
+5					4421
+
+kjv10.txt: 
+Order			Number of keys
+1					34027
+2					249661
+3					527454					
+4					686761
+5					753994
+
+kjv10.txt: 
+Order			Number of keys
+1					34027
+2					249661
+3					527454					
+4					686761
+5					753994
+
+melville.txt: 
+Order			Number of keys
+1					4255
+2					11320
+3					13902					
+4					14235
+5					14311
+
+obama-un-sept16-16.txt: 
+Order			Number of keys
+1					1876
+2					4668
+3					5445					
+4					5577
+5					5607
+
+poe.txt: 
+Order			Number of keys
+1					1038
+2					2059
+3					2295					
+4					2315
+5					2318
+
+romeo.txt: 
+Order			Number of keys
+1					6393
+2					20881
+3					25181					
+4					25658
+5					25735
+
+testfile.txt: 
+Order			Number of keys
+1					46
+2					55
+3					54					
+4					53
+5					52
+
+trump-un-sept19-17.txt: 
+Order			Number of keys
+1					1582
+2					3718
+3					4383			
+4					4535
+5					4572
+
+personal-test.txt: 
+Order			Number of keys
+1					1245
+2					2967
+3					3675		
+4					3876
+5					3939
+
+As the training text gets longer, the runtime for both TreeMap and HashMap gets larger. TreeMap's runtime grows more quickly than
+HashMap's runtime because TreeMap sort the keys that were put in. 
+%%%%

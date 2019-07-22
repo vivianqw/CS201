@@ -1,0 +1,198 @@
+Name: Vivian Qi
+NetID: wq11
+Hours Spent: 7
+Consulted With: discussion TA
+Resources Used: https://www.geeksforgeeks.org/priority-queue-class-in-java-2/ 
+Difficulty level: [6]
+Impressions: The binary search part is not too hard, but the trie part is harder to implement. Also priorityqueue wasn't covered very well in class. 
+----------------------------------------------------------------------
+Problem 1: Run the AutocompletorBenchmark class for each of three implementations of the Autocompletor interface: BruteAutocomplete, BinarySearchAutocomplete, and TrieAutcomplete. 
+Opening - D:\Study\Duke\Soph\CS201\autocomplete-start\data\words-333333.txt.
+Benchmarking BruteAutocomplete...
+Found 333333 words
+Time to initialize - 0.083471069
+Time for topMatch("") - 0.001246333967
+Time for topMatch("khombu") - 0.00247739254
+Time for topMatch("k") - 0.001247464492
+Time for topMatch("kh") - 0.001278383251
+Time for topMatch("notarealword") - 0.002077112151
+Time for topKMatches("", 1) -  0.00275399561
+Time for topKMatches("", 2) -  0.00243530081
+Time for topKMatches("", 4) -  0.00243571896
+Time for topKMatches("", 8) -  0.00244692918
+Time for topKMatches("", 16) -  0.00247899747
+Time for topKMatches("", 32) -  0.00311629963
+Time for topKMatches("", 64) -  0.00242198085
+Time for topKMatches("", 128) -  0.00245135396
+Time for topKMatches("", 256) -  0.00252826693
+Time for topKMatches("khombu", 1) -  0.00313451576
+Time for topKMatches("khombu", 2) -  0.00311911644
+Time for topKMatches("khombu", 4) -  0.00309588631
+Time for topKMatches("khombu", 8) -  0.00314979343
+Time for topKMatches("khombu", 16) -  0.0031033712
+Time for topKMatches("khombu", 32) -  0.0031865336
+Time for topKMatches("khombu", 64) -  0.00307698974
+Time for topKMatches("khombu", 128) -  0.00309324057
+Time for topKMatches("khombu", 256) -  0.00305503308
+Time for topKMatches("k", 1) -  0.00242245221
+Time for topKMatches("k", 2) -  0.00245748937
+Time for topKMatches("k", 4) -  0.00242706326
+Time for topKMatches("k", 8) -  0.00241666654
+Time for topKMatches("k", 16) -  0.00237842104
+Time for topKMatches("k", 32) -  0.00243225973
+Time for topKMatches("k", 64) -  0.00241110895
+Time for topKMatches("k", 128) -  0.00245938244
+Time for topKMatches("k", 256) -  0.00246486401
+Time for topKMatches("kh", 1) -  0.00241188823
+Time for topKMatches("kh", 2) -  0.00249502402
+Time for topKMatches("kh", 4) -  0.00244290354
+Time for topKMatches("kh", 8) -  0.00245798355
+Time for topKMatches("kh", 16) -  0.00248209179
+Time for topKMatches("kh", 32) -  0.00248709438
+Time for topKMatches("kh", 64) -  0.00294128112
+Time for topKMatches("kh", 128) -  0.00251468846
+Time for topKMatches("kh", 256) -  0.0027988973
+Time for topKMatches("notarealword", 1) -  0.00257641878
+Time for topKMatches("notarealword", 2) -  0.00232016897
+Time for topKMatches("notarealword", 4) -  0.00260434359
+Time for topKMatches("notarealword", 8) -  0.00230426406
+Time for topKMatches("notarealword", 16) -  0.00225785324
+Time for topKMatches("notarealword", 32) -  0.00248762277
+Time for topKMatches("notarealword", 64) -  0.00254980544
+Time for topKMatches("notarealword", 128) -  0.00240132805
+Time for topKMatches("notarealword", 256) -  0.00227113899
+
+Opening - D:\Study\Duke\Soph\CS201\autocomplete-start\data\words-333333.txt.
+Benchmarking BinarySearchAutocomplete...
+Found 333333 words
+Time to initialize - 0.589398914
+Time for topMatch("") - 0.10585564352083333
+Time for topMatch("khombu") - 5.160729E-6
+Time for topMatch("k") - 0.001712405289
+Time for topMatch("kh") - 1.7546708E-5
+Time for topMatch("notarealword") - 1.392059E-6
+Time for topKMatches("", 1) -  0.0506212376
+Time for topKMatches("", 2) -  0.05035579229
+Time for topKMatches("", 4) -  0.05018941427
+Time for topKMatches("", 8) -  0.05045569208
+Time for topKMatches("", 16) -  0.05058113323
+Time for topKMatches("", 32) -  0.05048576466
+Time for topKMatches("", 64) -  0.05066180954
+Time for topKMatches("", 128) -  0.05033305634
+Time for topKMatches("", 256) -  0.05058514747
+Time for topKMatches("khombu", 1) -  1.13661E-6
+Time for topKMatches("khombu", 2) -  1.24684E-6
+Time for topKMatches("khombu", 4) -  1.15181E-6
+Time for topKMatches("khombu", 8) -  1.17462E-6
+Time for topKMatches("khombu", 16) -  1.21643E-6
+Time for topKMatches("khombu", 32) -  1.10619E-6
+Time for topKMatches("khombu", 64) -  1.08338E-6
+Time for topKMatches("khombu", 128) -  1.09479E-6
+Time for topKMatches("khombu", 256) -  1.06818E-6
+Time for topKMatches("k", 1) -  0.00162260761
+Time for topKMatches("k", 2) -  0.00159184699
+Time for topKMatches("k", 4) -  0.00159678496
+Time for topKMatches("k", 8) -  0.00157305685
+Time for topKMatches("k", 16) -  0.00157841298
+Time for topKMatches("k", 32) -  0.00160146824
+Time for topKMatches("k", 64) -  0.00163433102
+Time for topKMatches("k", 128) -  0.0015932801
+Time for topKMatches("k", 256) -  0.00155623584
+Time for topKMatches("kh", 1) -  1.39586E-5
+Time for topKMatches("kh", 2) -  1.350244E-5
+Time for topKMatches("kh", 4) -  1.349103E-5
+Time for topKMatches("kh", 8) -  1.346062E-5
+Time for topKMatches("kh", 16) -  1.290183E-5
+Time for topKMatches("kh", 32) -  1.224799E-5
+Time for topKMatches("kh", 64) -  1.230501E-5
+Time for topKMatches("kh", 128) -  1.264713E-5
+Time for topKMatches("kh", 256) -  1.368871E-5
+Time for topKMatches("notarealword", 1) -  1.1138E-6
+Time for topKMatches("notarealword", 2) -  1.01116E-6
+Time for topKMatches("notarealword", 4) -  1.00356E-6
+Time for topKMatches("notarealword", 8) -  1.00736E-6
+Time for topKMatches("notarealword", 16) -  1.04157E-6
+Time for topKMatches("notarealword", 32) -  1.02257E-6
+Time for topKMatches("notarealword", 64) -  1.01496E-6
+Time for topKMatches("notarealword", 128) -  1.02257E-6
+Time for topKMatches("notarealword", 256) -  1.01876E-6
+
+Opening - D:\Study\Duke\Soph\CS201\autocomplete-start\data\words-333333.txt.
+Benchmarking TrieAutocomplete...
+Found 333333 words
+Time to initialize - 0.619295866
+Created 805917 nodes
+Time for topMatch("") - 1.89802E-6
+Time for topMatch("khombu") - 9.00543E-7
+Time for topMatch("k") - 1.934513E-6
+Time for topMatch("kh") - 9.36656E-7
+Time for topMatch("notarealword") - 7.75858E-7
+Time for topKMatches("", 1) -  2.619138E-5
+Time for topKMatches("", 2) -  2.034109E-5
+Time for topKMatches("", 4) -  2.34278E-5
+Time for topKMatches("", 8) -  2.562118E-5
+Time for topKMatches("", 16) -  2.988631E-5
+Time for topKMatches("", 32) -  7.086119E-5
+Time for topKMatches("", 64) -  1.6023502E-4
+Time for topKMatches("", 128) -  2.5969005E-4
+Time for topKMatches("", 256) -  4.2052948E-4
+Time for topKMatches("khombu", 1) -  1.76763E-6
+Time for topKMatches("khombu", 2) -  1.20503E-6
+Time for topKMatches("khombu", 4) -  1.6688E-6
+Time for topKMatches("khombu", 8) -  8.439E-7
+Time for topKMatches("khombu", 16) -  1.28106E-6
+Time for topKMatches("khombu", 32) -  8.4391E-7
+Time for topKMatches("khombu", 64) -  8.5531E-7
+Time for topKMatches("khombu", 128) -  8.477E-7
+Time for topKMatches("khombu", 256) -  8.287E-7
+Time for topKMatches("k", 1) -  7.5267E-7
+Time for topKMatches("k", 2) -  2.04133E-6
+Time for topKMatches("k", 4) -  4.4704E-6
+Time for topKMatches("k", 8) -  9.13467E-6
+Time for topKMatches("k", 16) -  8.918E-6
+Time for topKMatches("k", 32) -  2.329855E-5
+Time for topKMatches("k", 64) -  6.640219E-5
+Time for topKMatches("k", 128) -  1.5940632E-4
+Time for topKMatches("k", 256) -  1.9717285E-4
+Time for topKMatches("kh", 1) -  3.7633E-7
+Time for topKMatches("kh", 2) -  1.24685E-6
+Time for topKMatches("kh", 4) -  3.43644E-6
+Time for topKMatches("kh", 8) -  3.93441E-6
+Time for topKMatches("kh", 16) -  1.03283E-5
+Time for topKMatches("kh", 32) -  1.975568E-5
+Time for topKMatches("kh", 64) -  4.476864E-5
+Time for topKMatches("kh", 128) -  8.570171E-5
+Time for topKMatches("kh", 256) -  1.0860872E-4
+Time for topKMatches("notarealword", 1) -  5.1699E-7
+Time for topKMatches("notarealword", 2) -  5.8541E-7
+Time for topKMatches("notarealword", 4) -  5.55E-7
+Time for topKMatches("notarealword", 8) -  5.626E-7
+Time for topKMatches("notarealword", 16) -  5.7781E-7
+Time for topKMatches("notarealword", 32) -  5.664E-7
+Time for topKMatches("notarealword", 64) -  5.7401E-7
+Time for topKMatches("notarealword", 128) -  5.436E-7
+Time for topKMatches("notarealword", 256) -  5.7781E-7
+
+
+Problem 2: What is the big-Oh of the number of compares for topMatch and topMatches for BinarySearchAutocomplete in terms of N,M and K? 
+I think that topMatch is O(logN + M) and topMatches is O(logN + M + K)
+
+
+Problem 3: Look at the methods topMatch and topMatches in BruteAutocomplete and BinarySearchAutocomplete and compare both their theoretical and empirical runtimes. 
+Is BinarySearchAutocomplete always guaranteed to perform better than BruteAutocomplete? Justify your answer.
+Theoretically, the BinarySearchAutocomplete should be running in time related to O(log n) and the BruteAutocomplete should be running in time related to O(n). 
+However the BruteAutocomplete is sometimes faster than the BinarySearchAutocomplete. From the example above, we can see that when the prefix is empty, 
+BruteAutocomplete is faster. This is because the BinarySearchAutocomplete has to run through the array two times to find the FirstIndex and LastIndex. 
+
+
+Problem 4: By analyzing your code, use big-Oh notation to conclude how N,M, and k affect the runtime of topMatches for BruteAutocomplete, BinarySearchAutocomplete, and TrieAutcomplete. 
+Then check whether your empirical runtimes verify the theoretical analysis. To answer this question, you could run the benchmark on the following three files from the data folder. 
+These datasets provide a very clean distribution of words and vary enough in size to affect runtime.
+1. fourletterwords.txt: every four letter word from ‘aaaa’ to ‘zzzz’
+2. fourletterwordshalf.txt:  half of these words, those from ‘aaaa’ to ‘mzzz’
+3. fiveletterwords.txt: every five letter word from ‘aaaaa’ to ‘zzzzz’
+
+BruteAutocomplete: O(N + k). 
+BinarySearchAutocomplete: O(log N + M + k). As w increases, runtime decrease exponentially. 
+TrieAutocomplete: O(M + k). As w increases, runtime decrease
+

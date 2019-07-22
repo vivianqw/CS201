@@ -1,0 +1,37 @@
+Name: Vivian Qi
+NetID: wq11
+Hours Spent: started on 1/23 morning, finished on 1/24 night. Spent approximately 7 hours.
+Consulted With: Sarah Hendrix, Morton Mo, lz109
+Resources Used: https://introcs.cs.princeton.edu/java/15inout/
+%%%%
+Impressions: As the first assignment, it is pretty difficult for people who have not programmed in java before, but not too bad for people who
+had some kind of experience in java. It went smoothly when I was programming the Body class (that calculates everything) probably because I am more used to write 
+codes in MATLAB that mainly serves as calculation tools. When I was programming in NBody, I began to get errors when I was trying to load the txt file
+into the body array. After realizing that I did not declare a body array before the loop starts, I corrected the error, and everything worked out eventually. 
+%%%%
+Question 1: What is the final position of the planets after 1,000,000 and 
+2,000,000 seconds with a timestep of 25,000 using planets.txt?
+After 1000000 seconds: 
+x position   y position  planet
+ 1.4657e+11  2.9604e+10  earth
+ 2.2659e+11  2.4055e+10  mars
+ 3.8636e+10  4.2569e+10  mercury
+ 2.6827e+04  2.9792e+03  sun
+ 1.0244e+11  3.4391e+10  venus
+ After 2000000 seconds: 
+ x position	  y position  planet
+  1.3774e+11  5.8036e+10  earth
+ 2.2275e+11  4.7841e+10   mars
+-5.9865e+09  5.7090e+10   mercury
+ 1.0223e+05  2.3000e+04   sun
+ 8.5997e+10  6.5196e+10   venus
+%%%%
+Question 2: For what values of timeStep, does the simulation no longer behave correctly? 
+When total time is 10^9 and dt is 10^6, the simulation is no longer behaving correctly. The planet closest to sun (mercury in this case) will fly out 
+of the circular orbit it was in (with the sun as the center of the circle) and travel in an elliptical pattern. It can even travel to a place farther 
+from the sun than mars! Such inaccuracy occurs because the position of the body determines the direction and magnitude of the net force acting on it, 
+which determines the direction and magnitude of the acceleration. If the dt is too large, the body will experience the same acceleration vector over 
+a long period of time even if the acceleration were to be changed because of the object's displacement. Thus a large dt will result in incorrect behavior. 
+
+%%%%
+
